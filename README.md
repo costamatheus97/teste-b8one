@@ -1,68 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ![Alt text](https://storage.googleapis.com/www.b8one.com/b8one-smile.svg) B8ONE Tech Team Interview 
 
-## Available Scripts
+```* FrontEnd Coding Challenge```
 
-In the project directory, you can run:
+## Tech Requirements
 
-### `yarn start`
+* ReactJS or Javascript (Vanilla) as programming language;
+* CSS Frameworks (Bootstrap, Bulma, etc..) aren't allowed. We want to know your css skills;
+* You can use SASS;
+* Use [Marvel developer API](https://developer.marvel.com) as data source;
+  * server-side authentication endpoint can be used. But the hash **must** be calculated dynamically. To do that, please take a look at the [documentation](https://developer.marvel.com/documentation/authorization) in ***Authentication for Server-Side Application*** session to know how to generate the hash.
+* Fork this repository to your own workspace and submit a new pull request when you have all done. 
+    * If you have any problems to do a pull request, zip your local workspace folder (including the .git folder) and send to us by [email (jobs@b8one.com)](mailto:jobs@b8one.com)
+    * ***Don't forget to fill the pull_request_template.md file with your informations***
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## The Challenge
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Build a SPA (Single Page Application) to list all heroes related to a given event name *(Allowing input a list of events should be a plus)* .
 
-### `yarn test`
+User should filter by:
+  * Hero name
+  * Comic name
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+User should order by:
+  * Event date
+  * Comic name
+  * Hero name
 
-### `yarn build`
+The list should be paginated by default 20 itens by page and have a default order (descending) by event date.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*An event detail page should be a plus.*
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Validation checklist 
+1. **Coding organization & best practices** - Semantic elements, be conscious of page speed, DRY code (code density), coding modularization and good code documentation (jsDoc).
+2. **How do you think** - Talk through your thought process and your approach to problems and solutions. For example, why did you choose vanilla (pure Javascript) instead of ReactJS?? or SASS rather than pure CSS. Let us know the CSS methodology did you've use and why. Add all information resumed at the README file.
+3. **Vulnerability** - Did you found any vulnerability?? Let us know and tell us how to fix it.
+4. **Solution** - Didn't finish all requirements? No problem, tell us why. Add this information resumed at README file.
+4. **Test** - We don't need full cover.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## DeadLine
+**You have 4 days to send to us your solution since the date you've received this link.**
 
-### `yarn eject`
+## Questions
+Please let us know if you have any question! Send to us specific questions if you need more clarification about the challenge.
+[jobs@b8one.com](mailto:jobs@b8one.com)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Good luck and Lets code!
+# ![Alt text](https://media.giphy.com/media/pOKrXLf9N5g76/giphy.gif)
