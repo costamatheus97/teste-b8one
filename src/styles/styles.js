@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const DetailedInfo = styled.div`
   color: white;
-  margin: 50px 0px;
+  margin: 150px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,7 +53,7 @@ export const GridContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
   list-style: none;
-  margin-top: 50px;
+  margin-top: 150px;
 
   article {
     background: rgba(0, 0, 0, 0.9);
@@ -78,7 +78,8 @@ export const GridContainer = styled.div`
 export const FilterContainer = styled.div`
   background: rgba(0, 0, 0, 0.9);
   width: 40%;
-  margin: 50px 0px;
+  margin-top: 150px;
+  margin-bottom: 50px;
   border-radius: 4px;
   box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.5);
 

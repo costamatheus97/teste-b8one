@@ -6,7 +6,7 @@ export const PageHeader = styled.ul`
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  margin-top: 20px;
+  margin-top: 50px;
   height: 75px;
 
   div {
