@@ -13,7 +13,7 @@ export default function Header() {
       </Link>
       <div>
         <a href="/characters">Characters</a>
-        <a href="/events">Events</a>
+        <a href="/events">Comics</a>
       </div>
     </PageHeader>
   );

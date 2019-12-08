@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import api from "../../services/api";
 import { Link } from "react-router-dom";
+
+import api from "../../services/api";
 
 import { GridContainer, FilterContainer, Main } from "../../styles/styles";
 
-export default class Characters extends Component {
+export default class ComicPage extends Component {
   state = {
     characters: [],
     comics: [],
@@ -36,7 +37,7 @@ export default class Characters extends Component {
     const hash = "a88aadcdd89db54567d8c93b86998c82";
 
     const response = await api.get(
-      `comics?limit=50&ts=${ts}&apikey=${apikey}&hash=${hash}`
+      `comics?limit=20&ts=${ts}&apikey=${apikey}&hash=${hash}`
     );
 
     this.setState({ comics: response.data.data.results });
@@ -47,20 +48,17 @@ export default class Characters extends Component {
     return (
       <Main>
         <FilterContainer>
-          <h1>Filter by Comic</h1>
-          {comics.map(comic => (
-            <p key={comic.id}>{comic.title}</p>
+          <h1>Filter by Character</h1>
+          {characters.map(character => (
+            <p key={character.id}>{character.name}</p>
           ))}
         </FilterContainer>
         <GridContainer>
-          {characters.map(character => (
-            <article key={character.id}>
-              <img
-                src={character.thumbnail.path + "/portrait_small.jpg"}
-                alt=""
-              />
+          {comics.map(comic => (
+            <article key={comic.id}>
+              <img src={comic.thumbnail.path + "/portrait_small.jpg"} alt="" />
               <strong>
-                <Link to={"/characters/" + character.id}>{character.name}</Link>
+                <Link to={"/comics/" + comic.id}>{comic.title}</Link>
               </strong>
             </article>
           ))}

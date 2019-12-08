@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import api from "../../services/api";
 
-import { CharacterInfo } from "./styles";
+import { DetailedInfo, FeaturedIn } from "../../styles/styles";
 
 export default class CharacterPage extends Component {
   state = {
@@ -42,18 +42,24 @@ export default class CharacterPage extends Component {
   render() {
     const { character } = this.state;
     return (
-      <CharacterInfo>
-        {character.map(characterInfo => (
-          <article key={characterInfo.id}>
-            <img
-              src={characterInfo.thumbnail.path + "/portrait_uncanny.jpg"}
-              alt=""
-            />
-            <strong>{characterInfo.name}</strong>
-            <p>{characterInfo.description}</p>
-          </article>
-        ))}
-      </CharacterInfo>
+      <>
+        <DetailedInfo>
+          {character.map(characterInfo => (
+            <article key={characterInfo.id}>
+              <img
+                src={characterInfo.thumbnail.path + "/portrait_uncanny.jpg"}
+                alt=""
+              />
+              <strong>{characterInfo.name}</strong>
+              <p>{characterInfo.description}</p>
+              <h1>Featured In</h1>
+              {character.map(featuredComics =>
+                featuredComics.comics.items.map(comic => <li>{comic.name}</li>)
+              )}
+            </article>
+          ))}
+        </DetailedInfo>
+      </>
     );
   }
 }

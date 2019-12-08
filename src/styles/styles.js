@@ -1,6 +1,53 @@
 import styled from "styled-components";
 
-export const CharactersContainer = styled.div`
+export const DetailedInfo = styled.div`
+  color: white;
+  margin: 50px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+
+  article {
+    padding: 40px 0px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    margin-right: 50px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      border-radius: 4px;
+    }
+
+    strong {
+      margin-top: 20px;
+      font-size: 48px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 18px
+      margin-top: 20px;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1{
+      font-size: 38px;
+      margin: 30px 0px
+    }
+
+    li{
+      margin: 5px 0px
+    }
+  }
+`;
+
+export const GridContainer = styled.div`
   color: white;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -21,24 +68,27 @@ export const CharactersContainer = styled.div`
     img {
       border-radius: 50%;
     }
+
     strong {
       margin-left: 20px;
     }
   }
 `;
 
-export const ComicsContainer = styled.div`
+export const FilterContainer = styled.div`
   background: rgba(0, 0, 0, 0.9);
   width: 40%;
   margin: 50px 0px;
   border-radius: 4px;
   box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.5);
+
   h1 {
     color: white;
     display: flex;
     justify-content: center;
     margin: 30px 0px;
   }
+
   p {
     margin-left: 50px;
     margin-bottom: 5px;

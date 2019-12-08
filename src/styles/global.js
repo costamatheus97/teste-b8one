@@ -13,11 +13,10 @@ export default createGlobalStyle`
 
   body{
     background: url(${BackgroundImage});
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-size: auto 110%;
     -webkit-font-smoothing: antialiased;
-    height: 100%;
   }
 
   body, input, button{
