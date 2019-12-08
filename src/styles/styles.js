@@ -73,6 +73,26 @@ export const GridContainer = styled.div`
       margin-left: 20px;
     }
   }
+
+  button {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border-radius: 5px;
+    width: 130px;
+    padding: 5px 0px
+    margin-bottom: 50px;
+    transition: 0.5s;
+
+    &:hover{
+      background: #B7BCB9;
+    }
+  }
+
+  span{
+    color: #FFF;
+    margin-bottom: 50px;
+    font-size: 28px
+  }
 `;
 
 export const FilterContainer = styled.div`
