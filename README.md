@@ -53,9 +53,11 @@ At first I struggled to get the difference between marvel events and comics, so 
 
 • All routes are dynamic to make the navigation easier.
 
-2. **Solution** - Ran out of time and couldn't think of a solution to sort by event properties.
+2. **Solution**
 
-3. **Vulnerability** - 
+• Ran out of time and couldn't think of a solution to sort by event properties.
+
+3. **Vulnerability**
 
 • When you filter the comics/characters, the prev page/next page buttons keeps changing the offset by 20, as if it were without filters, easily fixed by adjusting the function with conditionals. 
 
