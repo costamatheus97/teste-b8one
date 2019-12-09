@@ -1,6 +1,6 @@
 # Pull Request
 
 ## Your Informations
-* name: ___
-* email: ___
-* Github: ___
+* name: Matheus Costa
+* email: costamatheus97@live.com
+* Github: github.com/costamatheus97
