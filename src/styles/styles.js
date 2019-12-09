@@ -49,16 +49,23 @@ export const DetailedInfo = styled.div`
 
 export const GridContainer = styled.div`
   color: white;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
   list-style: none;
   margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  article {
+  div.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 150px;
+
+    article {
     background: rgba(0, 0, 0, 0.9);
     border-radius: 4px;
     margin-right: 50px;
+    margin-bottom: 50px;
     max-width: 200px;
     max-height: 100px;
     display: flex;
@@ -72,9 +79,14 @@ export const GridContainer = styled.div`
     strong {
       margin-left: 20px;
     }
+   }
   }
 
+div.actions{
+
+
   button {
+    margin: 0px 100px;
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
     border-radius: 5px;
@@ -93,13 +105,15 @@ export const GridContainer = styled.div`
     margin-bottom: 50px;
     font-size: 28px
   }
+}
 `;
 
 export const FilterContainer = styled.div`
   background: rgba(0, 0, 0, 0.9);
-  width: 40%;
-  margin-top: 150px;
-  margin-bottom: 50px;
+  width: 30%;
+  min-width: 400px;
+  margin: 150px 100px 50px 50px;
+  padding-right: 50px;
   border-radius: 4px;
   box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.5);
 

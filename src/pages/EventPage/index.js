@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 
@@ -40,7 +41,11 @@ export default class EventPage extends Component {
             <h1>Featured Characters</h1>
             {events.map(featuredCharacters =>
               featuredCharacters.characters.items.map(comic => (
-                <li>{comic.name}</li>
+                <li>
+                  <Link to={"/characters/" + comic.resourceURI.slice(47)}>
+                    {comic.name}
+                  </Link>
+                </li>
               ))
             )}
           </article>

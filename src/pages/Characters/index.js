@@ -106,18 +106,22 @@ export default class Characters extends Component {
           ))}
         </FilterContainer>
         <GridContainer>
-          {characters.map(character => (
-            <article key={character.id}>
-              <img
-                src={character.thumbnail.path + "/portrait_small.jpg"}
-                alt=""
-              />
-              <strong>
-                <Link to={"/characters/" + character.id}>{character.name}</Link>
-              </strong>
-            </article>
-          ))}
-          <div>
+          <div className="grid">
+            {characters.map(character => (
+              <article key={character.id}>
+                <img
+                  src={character.thumbnail.path + "/portrait_small.jpg"}
+                  alt=""
+                />
+                <strong>
+                  <Link to={"/characters/" + character.id}>
+                    {character.name}
+                  </Link>
+                </strong>
+              </article>
+            ))}
+          </div>
+          <div className="actions">
             <button onClick={this.prevPage}>Previous Page</button>
             <span>Page {currentPage}</span>
             <button onClick={this.nextPage}>Next Page</button>

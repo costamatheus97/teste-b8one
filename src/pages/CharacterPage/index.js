@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 
-import { DetailedInfo, FeaturedIn } from "../../styles/styles";
+import { DetailedInfo } from "../../styles/styles";
 
 export default class CharacterPage extends Component {
   state = {
@@ -54,7 +55,13 @@ export default class CharacterPage extends Component {
               <p>{characterInfo.description}</p>
               <h1>Featured In</h1>
               {character.map(featuredComics =>
-                featuredComics.comics.items.map(comic => <li>{comic.name}</li>)
+                featuredComics.comics.items.map(comic => (
+                  <li>
+                    <Link to={"/comics/" + comic.resourceURI.slice(43)}>
+                      {comic.name}
+                    </Link>
+                  </li>
+                ))
               )}
             </article>
           ))}

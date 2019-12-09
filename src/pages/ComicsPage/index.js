@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 
@@ -39,6 +40,16 @@ export default class ComicsPage extends Component {
             />
             <strong>{comicsInfo.title}</strong>
             <p>{comicsInfo.description}</p>
+            <h1>Featured Characters</h1>
+            {comics.map(featuredCharacters =>
+              featuredCharacters.characters.items.map(character => (
+                <li>
+                  <Link to={"/characters/" + character.resourceURI.slice(47)}>
+                    {character.name}
+                  </Link>
+                </li>
+              ))
+            )}
           </article>
         ))}
       </DetailedInfo>
