@@ -2,16 +2,23 @@
 
 ```* FrontEnd Coding Challenge```
 
-## Tech Requirements
+## Instructions
 
-* ReactJS or Javascript (Vanilla) as programming language;
-* CSS Frameworks (Bootstrap, Bulma, etc..) aren't allowed. We want to know your css skills;
-* You can use SASS;
-* Use [Marvel developer API](https://developer.marvel.com) as data source;
-  * server-side authentication endpoint can be used. But the hash **must** be calculated dynamically. To do that, please take a look at the [documentation](https://developer.marvel.com/documentation/authorization) in ***Authentication for Server-Side Application*** session to know how to generate the hash.
-* Fork this repository to your own workspace and submit a new pull request when you have all done. 
-    * If you have any problems to do a pull request, zip your local workspace folder (including the .git folder) and send to us by [email (jobs@b8one.com)](mailto:jobs@b8one.com)
-    * ***Don't forget to fill the pull_request_template.md file with your informations***
+To get started, first you should clone the repository
+
+```git clone https://github.com/costamatheus97/teste-b8one```
+
+And then run
+
+```npm install``` or ```yarn```
+
+to install the dependencies
+
+## Technology used
+
+* ReactJS, because i like way more using states and components, more functionalities and less code;
+* Styled-components, because reutilizing the component makes the code cleaner;
+* Axios;
 
 ## The Challenge
 
@@ -31,18 +38,25 @@ The list should be paginated by default 20 itens by page and have a default orde
 *An event detail page should be a plus.*
 
 ## Validation checklist 
-1. **Coding organization & best practices** - Semantic elements, be conscious of page speed, DRY code (code density), coding modularization and good code documentation (jsDoc).
-2. **How do you think** - Talk through your thought process and your approach to problems and solutions. For example, why did you choose vanilla (pure Javascript) instead of ReactJS?? or SASS rather than pure CSS. Let us know the CSS methodology did you've use and why. Add all information resumed at the README file.
-3. **Vulnerability** - Did you found any vulnerability?? Let us know and tell us how to fix it.
-4. **Solution** - Didn't finish all requirements? No problem, tell us why. Add this information resumed at README file.
-4. **Test** - We don't need full cover.
 
-## DeadLine
-**You have 4 days to send to us your solution since the date you've received this link.**
+1. **How do you think**
 
-## Questions
-Please let us know if you have any question! Send to us specific questions if you need more clarification about the challenge.
-[jobs@b8one.com](mailto:jobs@b8one.com)
+At first I struggled to get the difference between marvel events and comics, so I decided to make it different but with all the functionalities.
 
-## Good luck and Lets code!
-# ![Alt text](https://media.giphy.com/media/pOKrXLf9N5g76/giphy.gif)
+• In the homepage I made a search engine in which you can search events, it returns a detailed page of the event with all featured comics and characters. To do that i pushed the form value to a state, and joined the state value with '+' to use it as a parameter and get the data of that event from the Marvel API. 
+
+• Then I did a character page with all the characters, which you can filter by comics. I managed to do that by getting the character data from the api and adding +20 or -20 offset as you navigate on the pages, because you are limited to 100 results per API call. As for the filter, I passed the comic id as a prop to the button and then added it to a state with a handleClick function, with the id ready, I used it as a parameter to get the characters related to that comic.
+
+• In the comic page it's basically the same as the character page, but it renders the comics with character filters.
+
+• I also did detailed pages for the events, characters and comics, which you have the thumbnail, name, description and featured comics/characters, the last one is clickable and redirects you to its detailed page.
+
+• All routes are dynamic to make the navigation easier.
+
+2. **Solution** - Ran out of time and couldn't think of a solution to sort by event properties.
+
+3. **Vulnerability** - 
+
+• When you filter the comics/characters, the prev page/next page buttons keeps changing the offset by 20, as if it were without filters, easily fixed by adjusting the function with conditionals. 
+
+• The homepage search engine is not checking for errors, also easily fixed by conditionals with the http codes returned by the API.
