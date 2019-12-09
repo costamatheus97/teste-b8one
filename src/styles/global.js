@@ -32,5 +32,9 @@ export default createGlobalStyle`
     cursor: pointer;
     color: #000
   }
+
+  input{
+    color: #000
+  }
 }
 `;
