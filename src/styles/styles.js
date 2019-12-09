@@ -8,6 +8,18 @@ export const DetailedInfo = styled.div`
   justify-content: center;
   border-radius: 4px;
 
+  div.featured{
+    display: flex;
+
+    div.featuredCharacters{
+      margin-right: 50px;
+    }
+
+    div.featuredComics{
+      margin-left: 50px;
+    }
+  }
+
   article {
     padding: 40px 0px;
     background: rgba(0, 0, 0, 0.7);
@@ -130,10 +142,32 @@ export const FilterContainer = styled.div`
     color: white;
     font-size: 18px;
   }
+
+  button {
+    margin-left: 50px;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 18px;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
 `;
 
 export const Main = styled.div`
   display: flex;
   justify-content: space-around;
   border-radius: 4px;
+`;
+
+export const Loading = styled.div`
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 `;

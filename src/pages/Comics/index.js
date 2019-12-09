@@ -3,16 +3,26 @@ import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 
-import { GridContainer, FilterContainer, Main } from "../../styles/styles";
+import {
+  GridContainer,
+  FilterContainer,
+  Main,
+  Loading
+} from "../../styles/styles";
 
 export default class ComicPage extends Component {
   state = {
     characters: [],
     comics: [],
+    characterID: [],
     currentPage: 1,
     comicsPerPage: 20,
     maxPages: Math.ceil(46010 / 20),
-    offset: 0
+    offset: 0,
+    loading: true,
+    ts: "matheus",
+    apikey: "1f846d9393d689a95848726eb7b1d627",
+    hash: "a88aadcdd89db54567d8c93b86998c82"
   };
 
   componentDidMount() {
@@ -21,26 +31,30 @@ export default class ComicPage extends Component {
   }
 
   loadCharacters = async () => {
-    const ts = "matheus";
-    const apikey = "1f846d9393d689a95848726eb7b1d627";
-    const hash = "a88aadcdd89db54567d8c93b86998c82";
+    const { ts, apikey, hash } = this.state;
 
     const response = await api.get(
       `characters?limit=60&ts=${ts}&apikey=${apikey}&hash=${hash}`
     );
 
-    this.setState({ characters: response.data.data.results });
+    this.setState({ characters: response.data.data.results, loading: false });
   };
 
   loadComics = async () => {
-    const ts = "matheus";
-    const apikey = "1f846d9393d689a95848726eb7b1d627";
-    const hash = "a88aadcdd89db54567d8c93b86998c82";
-
-    const { offset, comicsPerPage } = this.state;
+    const { offset, comicsPerPage, ts, apikey, hash } = this.state;
 
     const response = await api.get(
       `comics?offset=${offset}&limit=${comicsPerPage}&ts=${ts}&apikey=${apikey}&hash=${hash}`
+    );
+
+    this.setState({ comics: response.data.data.results });
+  };
+
+  loadFilteredComics = async () => {
+    const { characterID, offset, comicsPerPage, ts, apikey, hash } = this.state;
+
+    const response = await api.get(
+      `characters/${characterID}/comics?offset=${offset}&limit=${comicsPerPage}&ts=${ts}&apikey=${apikey}&hash=${hash}`
     );
 
     this.setState({ comics: response.data.data.results });
@@ -83,14 +97,41 @@ export default class ComicPage extends Component {
     this.loadComics();
   };
 
+  handleFilter = async data => {
+    const buttonValue = data.target.id;
+    await this.setState({
+      characterID: buttonValue,
+      currentPage: 1,
+      offset: 0
+    });
+    this.loadFilteredComics();
+    console.log(buttonValue);
+  };
+
   render() {
-    const { characters, comics, currentPage } = this.state;
+    const { characters, comics, currentPage, loading } = this.state;
+
+    if (loading) {
+      return (
+        <Loading>
+          <h1>Loading...</h1>
+        </Loading>
+      );
+    }
+
     return (
       <Main>
         <FilterContainer>
           <h1>Filter by Character</h1>
           {characters.map(character => (
-            <p key={character.id}>{character.name}</p>
+            <button
+              type="submit"
+              id={character.id}
+              key={character.id}
+              onClick={this.handleFilter}
+            >
+              {character.name}
+            </button>
           ))}
         </FilterContainer>
         <GridContainer>

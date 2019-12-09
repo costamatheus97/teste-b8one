@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 
-import { DetailedInfo } from "../../styles/styles";
+import { DetailedInfo, Loading } from "../../styles/styles";
 
 export default class ComicsPage extends Component {
   state = {
-    comics: []
+    comics: [],
+    loading: true
   };
 
   componentDidMount() {
@@ -25,11 +26,20 @@ export default class ComicsPage extends Component {
       `comics/${params.id}?ts=${ts}&apikey=${apikey}&hash=${hash}`
     );
 
-    this.setState({ comics: response.data.data.results });
+    this.setState({ comics: response.data.data.results, loading: false });
   };
 
   render() {
-    const { comics } = this.state;
+    const { comics, loading } = this.state;
+
+    if (loading) {
+      return (
+        <Loading>
+          <h1>Loading...</h1>
+        </Loading>
+      );
+    }
+
     return (
       <DetailedInfo>
         {comics.map(comicsInfo => (

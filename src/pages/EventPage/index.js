@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 
-import { DetailedInfo } from "../../styles/styles";
+import { DetailedInfo, Loading } from "../../styles/styles";
 
 export default class EventPage extends Component {
   state = {
-    events: []
+    events: [],
+    loading: true
   };
 
   componentDidMount() {
@@ -25,11 +26,19 @@ export default class EventPage extends Component {
       `events/${params.id}?ts=${ts}&apikey=${apikey}&hash=${hash}`
     );
 
-    this.setState({ events: response.data.data.results });
+    this.setState({ events: response.data.data.results, loading: false });
   };
 
   render() {
-    const { events } = this.state;
+    const { events, loading } = this.state;
+
+    if (loading) {
+      return (
+        <Loading>
+          <h1>Loading...</h1>
+        </Loading>
+      );
+    }
 
     return (
       <DetailedInfo>
@@ -38,16 +47,34 @@ export default class EventPage extends Component {
             <img src={event.thumbnail.path + "/portrait_uncanny.jpg"} alt="" />
             <strong>{event.title}</strong>
             <p>{event.description}</p>
-            <h1>Featured Characters</h1>
-            {events.map(featuredCharacters =>
-              featuredCharacters.characters.items.map(comic => (
-                <li>
-                  <Link to={"/characters/" + comic.resourceURI.slice(47)}>
-                    {comic.name}
-                  </Link>
-                </li>
-              ))
-            )}
+            <div className="featured">
+              <div className="featuredCharacters">
+                <h1>Featured Characters</h1>
+                {events.map(featuredCharacters =>
+                  featuredCharacters.characters.items.map(character => (
+                    <li>
+                      <Link
+                        to={"/characters/" + character.resourceURI.slice(47)}
+                      >
+                        {character.name}
+                      </Link>
+                    </li>
+                  ))
+                )}
+              </div>
+              <div className="featuredComics">
+                <h1>Featured Comics</h1>
+                {events.map(featuredComics =>
+                  featuredComics.comics.items.map(comics => (
+                    <li>
+                      <Link to={"/comics/" + comics.resourceURI.slice(43)}>
+                        {comics.name}
+                      </Link>
+                    </li>
+                  ))
+                )}
+              </div>
+            </div>
           </article>
         ))}
       </DetailedInfo>

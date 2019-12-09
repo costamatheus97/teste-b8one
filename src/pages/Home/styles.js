@@ -10,6 +10,7 @@ export const Container = styled.div`
   h1 {
     color: white;
     font-size: 72px;
+    text-align: center;
   }
 
   form {

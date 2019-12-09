@@ -13,9 +13,9 @@ export default createGlobalStyle`
 
   body{
     background: url(${BackgroundImage});
-    background-repeat: repeat;
-    background-position: 0 0;
-    background-size: auto 110%;
+    background-repeat: no-repeat;
+    background-position: center auto;
+    background-size: cover;
     -webkit-font-smoothing: antialiased;
   }
 
