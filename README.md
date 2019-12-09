@@ -43,7 +43,7 @@ The list should be paginated by default 20 itens by page and have a default orde
 
 At first I struggled to get the difference between marvel events and comics, so I decided to make it different but with all the functionalities.
 
-• In the homepage I made a search engine in which you can search events, it returns a detailed page of the event with all featured comics and characters. To do that i pushed the form value to a state, and joined the state value with '+' to use it as a parameter and get the data of that event from the Marvel API. 
+• In the homepage I made a search engine in which you can search events, it returns a detailed page of the event with the event thumbnail, description and all featured comics and characters, the comics and characters are clickable and redirects you to its detailed page. To do that i pushed the form value to a state, and joined the state value with '+' to use it as a parameter and get the data of that event from the Marvel API. 
 
 • Then I did a character page with all the characters, which you can filter by comics. I managed to do that by getting the character data from the api and adding +20 or -20 offset as you navigate on the pages, because you are limited to 100 results per API call. As for the filter, I passed the comic id as a prop to the button and then added it to a state with a handleClick function, with the id ready, I used it as a parameter to get the characters related to that comic.
 
