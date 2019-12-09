@@ -45,11 +45,15 @@ At first I struggled to get the difference between marvel events and comics, so 
 
 • In the homepage I made a search engine in which you can search events, it returns a detailed page of the event with the event thumbnail, description and all featured comics and characters, the comics and characters are clickable and redirects you to its detailed page. To do that i pushed the form value to a state, and joined the state value with '+' to use it as a parameter and get the data of that event from the Marvel API. 
 
-<img src="https://www.facebook.com/matheus.costa.756/videos/2094120827357419/"/>
+![Homepage Demo](demo/homepage.gif)
 
 • Then I did a character page with all the characters, which you can filter by comics. I managed to do that by getting the character data from the api and adding +20 or -20 offset as you navigate on the pages, because you are limited to 100 results per API call. As for the filter, I passed the comic id as a prop to the button and then added it to a state with a handleClick function, with the id ready, I used it as a parameter to get the characters related to that comic.
 
+![Character Page Demo](demo/character.gif)
+
 • In the comic page it's basically the same as the character page, but it renders the comics with character filters.
+
+![Comic Page Demo](demo/comic.gif)
 
 • I also did detailed pages for the events, characters and comics, which you have the thumbnail, name, description and featured comics/characters, the last one is clickable and redirects you to its detailed page.
 
